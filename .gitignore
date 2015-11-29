@@ -1,0 +1,9 @@
+compileStats.h
+.obj
+.cproject
+.project
+lib
+.settings
+bin
+*~
+*.pyc
