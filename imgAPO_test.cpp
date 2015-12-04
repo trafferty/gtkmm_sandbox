@@ -18,28 +18,29 @@ void sigint_handler(int n)
 
 int main(int argc, char* argv[])
 {
-    /* Register a handler for control-c */
-    signal(SIGINT, sigint_handler);
+   /* Register a handler for control-c */
+   signal(SIGINT, sigint_handler);
 
-    bool debug=true;
-    std::unique_ptr<imgAPO_GUI> gui = std::shared_ptr<imgAPO_GUI>(new imgAPO_GUI(debug));
+   bool debug=true;
+   std::unique_ptr<imgAPO_GUI> gui = std::unique_ptr<imgAPO_GUI>(new imgAPO_GUI(debug));
 
-    if (gui->init(cmd_config) == false)
-    {
-       m_Log->LogError("Command Processor initialization failed");
-       exit(1);
-    }
+   cJSON* config(NULL);
+   if (gui->Init(config) == false)
+   {
+      std::cerr << "Command Processor initialization failed" << std::endl;
+      exit(1);
+   }
 
-    gui->Start();
+   gui->Start();
 
-    while (!CtrlC)
-    {
-        usleep(1 * 1000);
-    }
+   while (!CtrlC)
+   {
+       usleep(1 * 1000);
+   }
 
-    gui->Shutdown();
+   gui->Shutdown();
 
-    return 0;
+   return 0;
 }
 
 #if 0

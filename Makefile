@@ -24,15 +24,14 @@ INCLUDES=\
 	-I./src
 
 OBJS = \
-    .obj/hello_world.o
+    .obj/imgAPO_GUI.o
 
 all: \
      compileStats \
      .obj \
      bin \
      $(OBJS) \
-     bin/hello_world_test \
-     bin/imgAPO_GUI
+     bin/imgAPO_test
 
 debug: DFLAGS = -ggdb -g3 -DDEBUG
 debug: all
@@ -53,22 +52,16 @@ compileStats:
 	echo "}" >> compileStats.h
 
 # compile objs 
-.obj/hello_world.o: hello_world.cpp hello_world.h
+.obj/imgAPO_GUI.o: imgAPO_GUI.cpp imgAPO_GUI.h
 	$(CPP) -c $< -o $@ $(CFLAGS) $(INCLUDES)
 
 # compile bin objs 
-.obj/hello_world_test.o: hello_world_test.cpp
-	$(CPP) -c $< -o $@ $(CFLAGS) $(INCLUDES)
-
-.obj/imgAPO_GUI.o: imgAPO_GUI.cpp
+.obj/imgAPO_test.o: imgAPO_test.cpp
 	$(CPP) -c $< -o $@ $(CFLAGS) $(INCLUDES)
 
 # link bins
-bin/hello_world_test: .obj/hello_world_test.o
-	$(LD) -o $@ .obj/hello_world_test.o $(OBJS) $(LDFLAGS) $(GTKMM_LIBS)
-
-bin/imgAPO_GUI: .obj/imgAPO_GUI.o
-	$(LD) -o $@ .obj/imgAPO_GUI.o $(OBJS) $(LDFLAGS) $(GTKMM_LIBS)
+bin/imgAPO_test: .obj/imgAPO_test.o
+	$(LD) -o $@ .obj/imgAPO_test.o $(OBJS) $(LDFLAGS) $(GTKMM_LIBS) -lpthread 
 
 .obj:
 	$(MKDIR) .obj
