@@ -18,12 +18,13 @@ imgAPO_GUI::imgAPO_GUI(bool debug) :
    // Sets the border width of the window.
    set_border_width(10);
 
-   int argc;
-   char *argv;
-   const Glib::ustring& application_id=Glib::ustring();
-   Gio::ApplicationFlags flags=Gio::APPLICATION_FLAGS_NONE;
-   //m_app = Gtk::Application::create(argc, &argv, "cnt.imgAPO.gui");
-   m_app = Gtk::Application::create("cnt.imgAPO.gui", flags);
+   int argc=1;
+   char **argv;
+
+   // const Glib::ustring& application_id=Glib::ustring();
+   // Gio::ApplicationFlags flags=Gio::APPLICATION_FLAGS_NONE;
+   // m_app = Gtk::Application::create(argc, argv, "cnt.imgAPO.gui", flags);
+   //m_app = Gtk::Application::create("cnt.imgAPO.gui", flags);
 
 }
 
@@ -70,6 +71,7 @@ bool imgAPO_GUI::Init(cJSON* config)
           pButton->signal_clicked().connect(sigc::bind<Glib::ustring>(
                        sigc::mem_fun(*this, &imgAPO_GUI::on_button_clicked), "doQuit"));
 
+         std::cout << "Window instantiated and widget signals connected" << std::endl;
       }
    }
 
@@ -114,6 +116,8 @@ void imgAPO_GUI::on_button_clicked(Glib::ustring data)
 
 bool imgAPO_GUI::runApp()
 {
+   std::cout << "Running app..." << std::endl;
+
    m_app->run(*m_win);
 }
 
