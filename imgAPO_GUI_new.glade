@@ -2,11 +2,13 @@
 <!-- Generated with glade 3.16.1 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
+  <!--
   <object class="GtkAdjustment" id="adjStrategy">
     <property name="upper">2</property>
     <property name="step_increment">1</property>
     <property name="page_increment">1</property>
   </object>
+  -->
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
     <property name="border_width">3</property>
@@ -63,7 +65,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="tooltip_text" translatable="yes">Start SMT processing</property>
-                        <signal name="clicked" handler="btnStart_clicked" swapped="no"/>
+                        <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -78,7 +80,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="tooltip_text" translatable="yes">Stop SMT processing</property>
-                        <signal name="clicked" handler="btnStop_clicked" swapped="no"/>
+                        <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -93,7 +95,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="tooltip_text" translatable="yes">Query results</property>
-                        <signal name="clicked" handler="btnQuery_clicked" swapped="no"/>
+                        <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -128,7 +130,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="tooltip_text" translatable="yes">Set strategy based on zero-index number, using value from above spin control</property>
-                        <signal name="clicked" handler="btnSetStrategy_clicked" swapped="no"/>
+                        <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -143,7 +145,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="tooltip_text" translatable="yes">Start loop test</property>
-                        <signal name="clicked" handler="btnLoop_clicked" swapped="no"/>
+                        <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -306,7 +308,7 @@
                             <property name="use_stock">True</property>
                             <property name="yalign">0.55000001192092896</property>
                             <property name="always_show_image">True</property>
-                            <signal name="clicked" handler="btnBeginCapture_clicked" swapped="no"/>
+                            <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -324,7 +326,7 @@
                             <property name="tooltip_text" translatable="yes">Press Stop to end video capture</property>
                             <property name="use_stock">True</property>
                             <property name="always_show_image">True</property>
-                            <signal name="clicked" handler="btnEndCapture_clicked" swapped="no"/>
+                            <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -398,7 +400,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Quit GUI.  Server will remain running.</property>
-                <signal name="clicked" handler="btnQuit_clicked" swapped="no"/>
+                <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -414,7 +416,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Reconnect to server</property>
-                <signal name="clicked" handler="btnReconnect_clicked" swapped="no"/>
+                <signal name="clicked" handler="btnGeneric_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>

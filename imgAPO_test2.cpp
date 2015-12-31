@@ -1,14 +1,14 @@
 // from system:
 #include <unistd.h>  // for usleep
-#include <sstream>
+#include <iostream>
 #include <memory>
 #include <signal.h>
 
 #include "gtk_utils.h"
 
 
-// from local:
-#include "imgAPO_GUI.h"
+// // from local:
+// #include "imgAPO_GUI.h"
 
 using namespace std;
 
@@ -29,28 +29,6 @@ int main(int argc, char* argv[])
    /* Register a handler for control-c */
    signal(SIGINT, sigint_handler);
 
-#if 0
-   bool debug=true;
-   std::unique_ptr<imgAPO_GUI> gui = std::unique_ptr<imgAPO_GUI>(new imgAPO_GUI(debug));
-
-   cJSON* config(NULL);
-   if (gui->Init(config) == false)
-   {
-      std::cerr << "Command Processor initialization failed" << std::endl;
-      exit(1);
-   }
-
-   //gui->Start();
-
-   while (!CtrlC)
-   {
-       usleep(1 * 1000);
-   }
-
-   //gui->Shutdown();
-
-#else
-
    //set_border_width(10);
 
    App *app;
@@ -62,8 +40,9 @@ int main(int argc, char* argv[])
    app_init (app);
 
    GET_UI_ELEMENT (GtkWidget, main_window);
-
    gtk_widget_show_all (main_window);
+   // GET_UI_ELEMENT (GtkWidget, window1);
+   // gtk_widget_show_all (window1);
 
    //gtk_main ();
    while (!CtrlC)
@@ -74,8 +53,6 @@ int main(int argc, char* argv[])
         usleep(1 * 1000);
     }
 
-
-#endif
 
    return 0;
 }
